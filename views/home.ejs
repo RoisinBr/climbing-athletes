@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Athlete Database</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <h1>Athlete Database</h1>
     <p>Search athlete database for Australian athletes competeing internationally</p>
     <form action="/climber">
-        <input type="text">
+        <input type="text" name="name">
         <button>Search</button>
     </form>
     <main>
@@ -24,6 +25,17 @@
             <option value="">SA</option>
             <option value="">WA</option>
         </select>
+
+        <div class="container">
+            <% profiles.forEach(function(profile) { %>
+                <a href="/climber?id=<%= profile.id%>">
+                    <div class="profile-card">
+                        <img src="<%= profile.photo %>" alt="">
+                        <p><%= profile.first_name%> <%= profile.surname %></p>
+                    </div>
+                </a>
+            <% }) %>
+        </div>
     </main>
     
     <aside>
