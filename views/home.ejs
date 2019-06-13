@@ -5,44 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Athlete Database</title>
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Athlete Database</h1>
+    <h1>Australian International Athlete Information</h1>
     <p>Search athlete database for Australian athletes competeing internationally</p>
     <form action="/climber">
         <input type="text" name="name">
         <button>Search</button>
     </form>
-    <main>
-        <select name="state" id="">
-            <option value="">Select State</option>
-            <option value="">ACT</option>
-            <option value="">NSW</option>
-            <option value="">Vic</option>
-            <option value="">Tas</option>
-            <option value="">NT</option>
-            <option value="">SA</option>
-            <option value="">WA</option>
-        </select>
+    <div class="wrapper">
+        <main>
+            <select name="state" id="">
+                <option value="">Select State</option>
+                <option value="">ACT</option>
+                <option value="">NSW</option>
+                <option value="">Vic</option>
+                <option value="">Tas</option>
+                <option value="">NT</option>
+                <option value="">SA</option>
+                <option value="">WA</option>
+            </select>
 
-        <div class="container">
-            <% profiles.forEach(function(profile) { %>
-                <a href="/climber?id=<%= profile.id%>">
+            <div class="container">
+                <% profiles.forEach(function(profile) { %>
                     <div class="profile-card">
-                        <img src="<%= profile.photo %>" alt="">
-                        <p><%= profile.first_name%> <%= profile.surname %></p>
+                        <a href="/climber/<%= profile.id%>">
+                            <img class="home-image" src="<%= profile.photo %>" alt="">
+                            <p class="home-name"><%= profile.first_name%> <%= profile.surname %></p>
+                        </a>
                     </div>
-                </a>
-            <% }) %>
-        </div>
-    </main>
-    
-    <aside>
-        <p>Australian Speed Record: </p>
-        <p>Australian Boulder Record: </p>
-        <p>Australian Lead Record: </p>
-    </aside>
+                <% }) %>
+            </div>
+        </main>
+        
+        <aside>
+            <p>Australian Speed Record: </p>
+            <ul>
+                <li>Male: Ned Middlehurst, 8.83 seconds</li>
+                <li>Female: Oceana Mackenzie, 9.589 seconds</li>
+            </ul>
+            <p>Australian Boulder Record: </p>
+            <ul>
+                <li>Male: James Kassay, 4th</li>
+                <li>Female: Sam Berry, 5th</li>
+            </ul>
+            <p>Australian Lead Record: </p>
+            <ul>
+                <li>Male: Campbell Harrison, 23rd</li>
+                <li>Female: Samantha Berry and Oceana Mackenzie, 19th</li>
+            </ul>
 
+            <p>Last updated: 13/6/2019</p>
+        </aside>
+    </div>
 </body>
 </html>

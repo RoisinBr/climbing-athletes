@@ -4,14 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Climber</title>
+  <link rel="stylesheet" href="/style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="/tablesorter-master/js/jquery.tablesorter.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
 </head>
 <body>
-  <ul>
-    <%= results[0].first_name %>
-    <% results.forEach(function(r) { %>
-      <li><%= r.rank %></li>
-    <% }) %>
-  </ul>
+  
+  <div class="container climber">
+    <div class="athlete-card-image">
+      <img src="<%= profileResults[0].photo %>" alt="">
+    </div>
+    <div class="athlete-card-text">
+      <h1><%= profileResults[0].first_name %> <%= profileResults[0].surname %></h1>
+      <h2><%= profileResults[0].state %></h2>
+      <p>Lead National Ranking: <%= profileResults[0].lead_national_ranking %></p>
+      <p>Boulder National Ranking: <%= profileResults[0].boulder_national_ranking %></p>
+      <p>World Ranking: <%= profileResults[0].world_ranking %></p>
+      <p>Last Competition: <%= profileResults[0].last_comp %></p>  
+    </div>
+  </div>
+  
+  <h1>Event Results</h1>
+  <table id="keywords">
+    <thead>
+      <tr>
+        <th>Place</th>
+        <th>Competition</th>
+        <th>Discipline</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% profileResults.forEach(function(result) { %>
+        <tr>
+          <td><%= result.rank %></td>
+          <td><%= result.name %></td>
+          <td><%= result.cat_name %></td>
+          <td><%= result.date %></td>
+        </tr>      
+      <% }) %>
+    </tbody>
+  </table>
+
+  
+  <script src="/app.js"></script>
 </body>
 </html>

@@ -19,17 +19,20 @@ app.get('/', (req, res) => {
     })
 })
 
-
 app.get('/climber', (req, res) => {
-    db.any(`SELECT * from profiles inner join results on profiles.id = results.profile_id where profile_id=${req.query.id}`)
-    .then(function(results){    
-        res.render('climber', { results })
+    db.any(`SELECT * FROM profiles WHERE first_name iLIKE '%${req.query.name}%' OR surname iLIKE '%${req.query.name}%'`)
+    .then(function(searchResults){
+        res.render('climber_list', { searchResults })
     })
 })
-//searh includes
-// .then(function(result){
-            
-// })
+
+
+app.get('/climber/:id', (req, res) => {
+    db.any(`SELECT * from profiles inner join results on profiles.id = results.profile_id where profile_id=${req.params.id}`)
+    .then(function(profileResults){    
+        res.render('climber', { profileResults })
+    })
+})
 
 // making the request but it is asynchronous therefore get back a promise.  when it completes (think promise queue) then will render the page with the information
 
