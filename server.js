@@ -9,7 +9,7 @@ if (process.env.PRODUCTION) {
     var db = pgp({
         database: 'athletes',
         password: process.env["zendesk_password"]
-    })
+    })    
 }
 
 app.set('view engine', 'ejs')
@@ -25,8 +25,8 @@ app.get('/', (req, res) => {
 
 app.get('/climber', (req, res) => {
     db.any(`SELECT * FROM profiles WHERE first_name iLIKE '%${req.query.name}%' OR surname iLIKE '%${req.query.name}%'`)
-    .then(function(searchResults){
-        res.render('climber_list', { searchResults })
+    .then(function(profiles){
+        res.json(profiles)
     })
 })
 
