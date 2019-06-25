@@ -2,14 +2,14 @@ const express = require('express')
 const app = express()
 // const port = process.env.PORT || 8080
 const pgp = require('pg-promise')()
-if (process.env.PRODUCTION) {
-    var db = pgp(process.env.DATABASE_URL)
-} else {
-    var db = pgp({
-        database: 'athletes',
-        password: process.env["zendesk_password"]
-    })    
-}
+// if (process.env.PRODUCTION) {
+var db = pgp(process.env.DATABASE_URL)
+// } else {
+//     var db = pgp({
+//         database: 'athletes',
+//         password: process.env["zendesk_password"]
+//     })    
+// }
 
 app.set('view engine', 'ejs')
 
