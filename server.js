@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 8080
+// const port = process.env.PORT || 8080
 const pgp = require('pg-promise')()
 if (process.env.PRODUCTION) {
     var db = pgp(process.env.DATABASE_URL)
@@ -37,6 +37,6 @@ app.get('/climber/:id', (req, res) => {
     })
 })
 
-app.listen(port, () => {
-    console.log(`listening ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`listening ${port}`)
+// })
