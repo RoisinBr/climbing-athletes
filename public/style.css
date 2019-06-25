@@ -8,6 +8,35 @@ body {
   font-family: 'Righteous', cursive;
 }
 
+input {
+  border-radius: 27px;
+  width: 60%;
+  height: 40px;
+}
+
+button {
+  border-radius: 27px;
+  height: 40px;
+  width: 100px;
+  background-color: #11558b;
+  color: white;
+  font-family: 'Righteous', cursive;
+}
+
+.home-link {
+  border-radius: 27px;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 0 10px 0 10px;
+}
+
+.home-div {
+  position: absolute;
+  left: 90%;
+  margin-top: 10px;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -29,10 +58,6 @@ aside {
   background-color: #11558b;
   color: white;
   padding-left: 10px;
-}
-
-form {
-  text-align: center;
 }
 
 .profile-card {
@@ -90,16 +115,22 @@ form {
 
 #keywords thead {
   cursor: pointer;
-  background: #c9dff0;
+  background: #11558b;
+  color: white;
 }
 
-#keywords thead tr th { 
+#keywords thead th { 
   font-weight: bold;
   padding: 12px 30px;
   padding-left: 42px;
+  
 }
 
 #keywords tbody tr td {
   text-align: center;
   padding: 15px 10px;
+}
+
+#keywords tbody tr:nth-child(even) {
+  background: #c9dff0;
 }
