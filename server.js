@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 8080
 const pgp = require('pg-promise')()
-if (process.env.PRODUCTION) {
-var db = pgp(process.env.DATABASE_URL)
+if (process.env.NODE_ENV === 'production') {
+    var db = pgp(process.env.DATABASE_URL)
 } else {
     var db = pgp({
         database: 'athletes',
