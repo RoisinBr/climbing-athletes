@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 8080
-// const axios = require('axios')
 const pgp = require('pg-promise')()
 if (process.env.PRODUCTION) {
     var db = pgp(process.env.DATABASE_URL)
@@ -37,8 +36,6 @@ app.get('/climber/:id', (req, res) => {
         res.render('climber', { profileResults })
     })
 })
-
-// making the request but it is asynchronous therefore get back a promise.  when it completes (think promise queue) then will render the page with the information
 
 app.listen(port, () => {
     console.log(`listening ${port}`)

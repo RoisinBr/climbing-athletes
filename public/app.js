@@ -4,6 +4,7 @@ $(function(){
 
 var searchButton = document.querySelector('.search')
 var input = document.querySelector('input')
+var section = document.querySelector('section')
 
 var handleClick = event => {
   event.preventDefault();
@@ -17,15 +18,24 @@ var handleClick = event => {
   }
 
   var handleDone = function(response) {
-    console.log(response)
-    //how to put html into ajax response - do it by removing what is there (query selector all) and appending all the reuired info
+    var profiles = document.querySelectorAll('.profile-card')
+    profiles.forEach(function(profile) {
+      profile.remove()
+    })
     response.forEach(function(profile) {
-      <div class="profile-card">
-        <a href=`/climber/${profile.id}`>
-          <img class="home-image" src=`${profile.photo}` alt="">
-          <p class="home-name">profile.first_name  profile.surname</p>
-        </a>
-      </div>
+        var div = document.createElement('div');
+        var a = document.createElement('a');
+        var img = document.createElement('img');
+        var p = document.createElement('p');
+        img.src = `${profile.photo}`;
+        a.href = `/climber/${profile.id}`;
+        p.textContent = `${profile.first_name} ${profile.surname}`;
+        p.classList.add('home-name');
+        div.classList.add('profile-card');
+        img.classList.add('home-image');
+        section.append(div);
+        div.append(a)
+        a.append(img, p)
     })
   }
       

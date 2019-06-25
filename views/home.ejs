@@ -10,25 +10,14 @@
 </head>
 <body>
     <h1>Australian International Athlete Information</h1>
-    <p>Search athlete database for Australian athletes competeing internationally</p>
-    <form action="">
+    <p>Search athlete database for Australian athletes competing internationally</p>
+    <form action="/climber">
         <input type="text" name="name">
         <button class="search">Search</button>
     </form>
     <div class="wrapper">
         <main>
-            <select name="state" id="">
-                <option value="">Select State</option>
-                <option value="">ACT</option>
-                <option value="">NSW</option>
-                <option value="">Vic</option>
-                <option value="">Tas</option>
-                <option value="">NT</option>
-                <option value="">SA</option>
-                <option value="">WA</option>
-            </select>
-
-            <div class="container">
+            <section class="container">
                 <% profiles.forEach(function(profile) { %>
                     <div class="profile-card">
                         <a href="/climber/<%= profile.id%>">
@@ -37,7 +26,7 @@
                         </a>
                     </div>
                 <% }) %>
-            </div>
+            </section>
         </main>
         
         <aside>
@@ -53,11 +42,11 @@
             </ul>
             <p>Australian Lead Record: </p>
             <ul>
-                <li>Male: Campbell Harrison, 23rd</li>
+                <li>Male: Garth Miller, 13th</li>
                 <li>Female: Samantha Berry and Oceana Mackenzie, 19th</li>
             </ul>
 
-            <p>Last updated: 13/6/2019</p>
+            <p>Last updated: 25/6/2019</p>
         </aside>
     </div>
 
