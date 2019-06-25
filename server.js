@@ -2,14 +2,14 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 8080
 const pgp = require('pg-promise')()
-// if (process.env.PRODUCTION) {
+if (process.env.PRODUCTION) {
 var db = pgp(process.env.DATABASE_URL)
-// } else {
-//     var db = pgp({
-//         database: 'athletes',
-//         password: process.env["zendesk_password"]
-//     })    
-// }
+} else {
+    var db = pgp({
+        database: 'athletes',
+        password: process.env["zendesk_password"]
+    })    
+}
 
 app.set('view engine', 'ejs')
 
@@ -37,6 +37,6 @@ app.get('/climber/:id', (req, res) => {
     })
 })
 
-// app.listen(port, () => {
-//     console.log(`listening ${port}`)
-// })
+app.listen(port, () => {
+    console.log(`listening ${port}`)
+})
