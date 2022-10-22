@@ -1,7 +1,5 @@
 # Australian Climbing Athlete Database
 
-[View the website here.](https://australian-athletes.herokuapp.com/)
-
 ## The Requirement
 Currently there is no record of Australian history in the sport of Climbing.  With the introduction of climbing in the Tokyo 2020 Olympic Games and therefore the greater media attention there has been no greater need to keep track of Australian History and records set by our competitors.  
 
